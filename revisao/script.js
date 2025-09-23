@@ -1,0 +1,10 @@
+let nome='ana'
+const idade=20
+let ativo=true
+let frutas=['banana','Maça','Uva','Manga','Abacate'] 
+let aluno={nome:'Carlos',idade:90}
+console.log(typeof nome,
+    typeof idade,
+   typeof ativo,
+   typeof frutas,
+    typeof aluno)
