@@ -3,41 +3,54 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Projeto - Luta</title>
 </head>
 
 <body>
+    <h1>🗡️ Projeto de Luta JS - POO ⚔️</h1>
+    
+    <div class="selection-area">
+        <h2>Selecione seu Herói</h2>
+        <select id="hero-select">
+            <option value="">-- Escolha um --</option>
+            <option value="knight">🛡️ Knight (HP: 100 | ATK: 10 | DEF: 8)</option>
+            <option value="sorcerer">🔮 Sorcerer (HP: 80 | ATK: 25 | DEF: 5)</option>
+        </select>
+        <button id="start-fight-button">Iniciar Luta</button>
+    </div>
+
     <div class="fightArea">
         <div id="char">
+            <img src="heroi.png" alt="Herói" class="char-img" height="550">
             <div class="lifebar">
-                <div class="bar" style="width: 10%;"></div>
+                <div class="bar" style="width: 100%;"></div>
             </div>
-            <strong class="name"> -- </strong>
+            <strong class="name">Aguardando...</strong>
             <div>
-                <button class="attackbutton">Atacar</button>
+                <button class="attackbutton" disabled>Atacar</button>
             </div>
         </div>
         <div id="monster">
+            <img src="monstro.png" alt="Monstro" class="char-img">
             <div class="lifebar">
-                <div class="bar" style="width: 10%;"></div>
+                <div class="bar" style="width: 100%;"></div>
             </div>
-            <strong class="name"> -- </strong>
+            <strong class="name">Aguardando...</strong>
             <div>
-                <button class="attackbutton">Atacar</button>
+                <button class="attackbutton" disabled>Atacar</button>
             </div>
         </div>
-
     </div>
-    <ul class="log">
-
-        
-    </ul>
+    
+    <ul class="log"></ul>
+    
     <script src="classes.js"></script>
     <script src="scripts.js"></script>
 
 </body>
 
 </html>
+
+

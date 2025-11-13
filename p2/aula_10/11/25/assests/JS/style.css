@@ -1,26 +1,138 @@
-.fightArea{
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.selection-area {
+    margin: 20px auto;
+    max-width: 500px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+select,
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid #667eea;
+    cursor: pointer;
+}
+
+button {
+    background: #667eea;
+    color: white;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #5568d3;
+}
+
+.fightArea {
     display: flex;
     gap: 20px;
+    margin: 20px auto;
+    max-width: 800px;
 }
-#char, #monster{
+
+#char,
+#monster {
     flex: 1;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    text-align: center;
 }
 
-.lifebar{
-    height: 10px;
-    border: 1px solid black;
-    border-radius: 5px;
-    
+.char-img {
+    width: 150px;
+    height: 100px;
+    object-fit: contain;
+    margin: 10px auto;
+    display: block;
+    border-radius: 10px;
+    background: #f0f0f0;
 }
 
-.lifebar .bar{
-    height: inherit;
-    background-color: red;
-    border-radius: 5px;
+.lifebar {
+    height: 20px;
+    background: #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0;
+    border: 2px solid #333;
 }
 
-.log{
-    border: 1px solid #999;
-    height: 200px;
-    overflow-y: scroll;
+.lifebar .bar {
+    height: 100%;
+    background: linear-gradient(90deg, #ff6b6b 0%, #ee5a6f 100%);
+    transition: width 0.3s ease;
+    border-radius: 8px;
+}
+
+.name {
+    display: block;
+    margin: 10px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.attackbutton {
+    margin-top: 10px;
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.attackbutton:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    border-color: #999;
+}
+
+.log {
+    list-style: none;
+    padding: 15px;
+    margin: 20px auto;
+    max-width: 800px;
+    background: white;
+    border-radius: 10px;
+    height: 250px;
+    overflow-y: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.log li {
+    padding: 5px 0;
+    border-bottom: 1px dotted #ddd;
+}
+
+.system-msg {
+    color: #007bff;
+    font-style: italic;
+}
+
+.hero-msg {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.monster-msg {
+    color: #dc3545;
+    font-weight: bold;
 }
