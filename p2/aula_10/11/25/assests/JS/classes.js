@@ -11,14 +11,14 @@ class Character {
     }
 
     get life() {
-        return this._life // Retorna o número diretamente
+        return this._life 
     }
 
     set life(newLife) {
         this._life = newLife < 0 ? 0 : newLife
     }
     
-    // Método auxiliar para exibir a vida formatada
+    
     get lifeFormatted() {
         return this._life.toFixed(2)
     }
@@ -32,7 +32,7 @@ class Knight extends Character {
         this.defense = 8
         this.maxlife = this.life
         this.type = 'Hero'
-        this.image = 'heroi.png'
+        this.image = 'cavaleiro.png'
     }
 }
 class Sorcerer extends Character {
@@ -43,7 +43,7 @@ class Sorcerer extends Character {
         this.defense = 5
         this.maxlife = this.life
         this.type = 'Hero'
-        this.image = 'heroi.png'
+        this.image = 'mago.png'
     }
 }
 
@@ -56,7 +56,7 @@ class LittleMonster extends Character {
         this.defense = 4
         this.maxlife = this.life
         this.type = 'Monster'
-        this.image = 'monstro.jpg'
+        this.image = 'monstrinho.png'
     }
 }
 
@@ -149,7 +149,7 @@ class Stage {
 
         if (attacked.life <= 0) {
             this.log.addMessage(`**SISTEMA**: **${attacked.name}** foi derrotado! **${attacking.name}** VENCEU!`, 'system-msg')
-            // Mantém o turno no vencedor para permitir "atacar o cachorro morto"
+            
             this.turn = attacking
             this.update()
         }
