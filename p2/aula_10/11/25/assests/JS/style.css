@@ -1,46 +1,68 @@
 body {
-    font-family: Arial, sans-serif;
+    /* Fundo Escuro e Textura de Jogo */
+    font-family: 'Press Start 2P', monospace, sans-serif; /* Idealmente, use uma fonte gamer, mas fallback para segurança */
     padding: 20px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: #1a1a2e; /* Cor base muito escura */
+    background-image: url('data:image/svg+xml,...'); /* Adicionar uma leve textura de ruído ou grade (simulado aqui, mas seria uma URL real) */
     min-height: 100vh;
+    color: #e0e0e0; /* Cor de texto padrão clara */
+    text-shadow: 1px 1px 2px #000000;
 }
 
+/* Título estilo "display de jogo" */
 h1 {
     text-align: center;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: #00ffc8; /* Verde/Ciano brilhante */
+    text-shadow: 0 0 5px #00ffc8, 0 0 10px #00ffc8; /* Efeito Neon/Brilho */
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    border-bottom: 3px solid #00ffc8;
+    display: inline-block;
+    padding-bottom: 10px;
 }
 
+/* Área de Seleção - Estilo Painel de Controle */
 .selection-area {
     margin: 20px auto;
     max-width: 500px;
-    padding: 20px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    padding: 25px;
+    background: rgba(30, 30, 45, 0.9); /* Fundo escuro semi-transparente */
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 255, 200, 0.5); /* Borda com brilho neon */
+    border: 1px solid #00ffc8; /* Borda fina */
     text-align: center;
 }
 
+/* Dropdowns e Botões - Estilo Interface Tecnológica/HUD */
 select,
 button {
-    padding: 10px 20px;
+    padding: 12px 25px;
     margin: 10px;
     font-size: 16px;
-    border-radius: 5px;
-    border: 2px solid #667eea;
+    border-radius: 4px;
+    border: 2px solid #ff007f; /* Borda magenta/vermelha forte */
     cursor: pointer;
+    background-color: #0d0d1e; /* Fundo do elemento muito escuro */
+    color: #e0e0e0;
+    transition: all 0.2s ease;
+    font-family: inherit; /* Mantém a fonte "gamer" */
 }
 
+/* Botão de Ação */
 button {
-    background: #667eea;
+    background: #ff007f; /* Magenta vibrante */
     color: white;
     font-weight: bold;
+    box-shadow: 0 0 8px rgba(255, 0, 127, 0.7);
 }
 
 button:hover {
-    background: #5568d3;
+    background: #e6006e;
+    transform: translateY(-2px); /* Efeito de "lift" */
+    box-shadow: 0 4px 12px rgba(255, 0, 127, 0.9);
 }
 
+/* Área de Combate - Separadores de Tela */
 .fightArea {
     display: flex;
     gap: 20px;
@@ -48,13 +70,15 @@ button:hover {
     max-width: 800px;
 }
 
+/* Painéis do Personagem e Monstro */
 #char,
 #monster {
     flex: 1;
-    background: white;
+    background: rgba(30, 30, 45, 0.9);
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    border: 1px solid #4a4a6b;
     text-align: center;
 }
 
@@ -64,75 +88,108 @@ button:hover {
     object-fit: contain;
     margin: 10px auto;
     display: block;
-    border-radius: 10px;
-    
+    border-radius: 4px;
+    border: 3px solid #ff007f; /* Borda ao redor da imagem */
 }
 
+/* Lifebar - Estilo Medidor de HP */
 .lifebar {
-    height: 20px;
-    background: #ddd;
-    border-radius: 10px;
+    height: 25px; /* Mais grossa */
+    background: #440022; /* Fundo escuro da barra vazia */
+    border-radius: 5px;
     overflow: hidden;
-    margin: 10px 0;
-    border: 2px solid #333;
+    margin: 15px 0;
+    border: 2px solid #ff007f; /* Borda forte */
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5); /* Sombra interna */
 }
 
 .lifebar .bar {
     height: 100%;
-    background: linear-gradient(90deg, #ff6b6b 0%, #ee5a6f 100%);
+    /* Gradiente que passa de vermelho (baixo HP) para amarelo/verde (alto HP) */
+    background: linear-gradient(90deg, #ff0000 0%, #ff8c00 50%, #00ff00 100%);
     transition: width 0.3s ease;
-    border-radius: 8px;
+    border-radius: 3px;
+    /* Linha de progresso no estilo barra de energia */
+    filter: drop-shadow(0 0 3px #ff0000);
 }
 
 .name {
     display: block;
     margin: 10px 0;
-    font-size: 14px;
-    color: #333;
-}
-
-.attackbutton {
-    margin-top: 10px;
-    width: 100%;
-    padding: 12px;
-    font-size: 18px;
+    font-size: 16px;
+    color: #00ffc8; /* Nome com destaque de cor */
     font-weight: bold;
 }
 
-.attackbutton:disabled {
-    background: #ccc;
-    cursor: not-allowed;
-    border-color: #999;
+/* Botão de Ataque com mais impacto */
+.attackbutton {
+    margin-top: 15px;
+    width: 100%;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    border-color: #00ffc8;
 }
 
+.attackbutton:disabled {
+    background: #333;
+    cursor: not-allowed;
+    border-color: #555;
+    color: #888;
+    box-shadow: none;
+    transform: none;
+}
+
+/* Log de Batalha - Estilo Console */
 .log {
     list-style: none;
     padding: 15px;
     margin: 20px auto;
     max-width: 800px;
-    background: white;
-    border-radius: 10px;
+    background: #0a0a15; /* Fundo bem escuro */
+    border-radius: 5px;
     height: 250px;
     overflow-y: auto;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8); /* Sombra interna para profundidade */
+    border: 1px solid #4a4a6b;
 }
 
 .log li {
     padding: 5px 0;
-    border-bottom: 1px dotted #ddd;
+    border-bottom: 1px dashed #2a2a3e; /* Linha pontilhada sutil */
+    font-size: 0.9em;
 }
 
+/* Cores das Mensagens para fácil identificação */
 .system-msg {
-    color: #007bff;
+    color: #ffcc00; /* Amarelo para mensagens neutras/sistema */
     font-style: italic;
 }
 
 .hero-msg {
-    color: #28a745;
+    color: #00ffc8; /* Ciano/Verde para o herói */
     font-weight: bold;
 }
 
 .monster-msg {
-    color: #dc3545;
+    color: #ff007f; /* Magenta/Vermelho para o monstro */
     font-weight: bold;
+}
+
+/* Adicionando um Scrollbar no estilo gamer (opcional e mais complexo, mas melhora o visual) */
+.log::-webkit-scrollbar {
+    width: 8px;
+}
+
+.log::-webkit-scrollbar-track {
+    background: #1a1a2e;
+}
+
+.log::-webkit-scrollbar-thumb {
+    background: #4a4a6b;
+    border-radius: 4px;
+}
+
+.log::-webkit-scrollbar-thumb:hover {
+    background: #00ffc8;
 }
