@@ -75,6 +75,15 @@ document.addEventListener('keyup',aoSoltar)
 //           "Shift: " + (event.shiftKey ? "Sim" : "Não"), "Control: " + (event.ctrlKey ? "Sim" : "Não")
 //         - Use quebras de linha (<br>) entre cada informação
 //         - Adicione um event listener 'keyup' ao document que chama "mostrarDetalhesTecla"
+let detalhes_teclas=document.getElementById('detalhesTecla')
+
+function mostrarDetalhesTecla(event){
+  detalhes_teclas.innerHTML=`Código:${event.code},`+
+                              `Tecla:${event.key},`+
+                              `Shift:${event.shiftKey ? 'Sim' : 'Não'},`+
+                              `Control:${event.ctrlKey ? 'Sim' : 'Não'}`
+}
+document.addEventListener('keyup',mostrarDetalhesTecla)
 
 // ========== EXERCÍCIO 5: Classes - Construtor e Métodos (2 pontos) ==========
 // TODO 5: Implemente a classe Pessoa e a função testarPessoa
@@ -84,10 +93,30 @@ document.addEventListener('keyup',aoSoltar)
 //         - Na função testarPessoa(), crie uma instância da classe Pessoa com nome "João" e idade 25,
 //           chame o método apresentar() e exiba o resultado no elemento com id "resultadoPessoa"
 
+
+class Pessoa{
+  constructor(nome,idade){
+    this.nome=nome
+    this.idade=idade
+  }
+  apresentar(){
+    return `Olá,meu nome é ${this.nome} e tenho ${this.idade} anos`
+  }
+}
+
 // ========== FUNÇÕES DE TESTE ==========
 // As funções abaixo são chamadas pelos botões do HTML
 // Você deve implementar o código dentro delas conforme os TODOs acima
 
 function testarPessoa() {
   // Implemente conforme TODO 5
+  const pessoa=new Pessoa('João',25)
+  let mensagem=pessoa.apresentar()
+  let gente=document.getElementById('resultadoPessoa')
+  if(gente){
+    gente.innerHTML=mensagem
+  }
+
+
 }
+testarPessoa()
