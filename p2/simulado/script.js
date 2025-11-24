@@ -16,24 +16,39 @@
 //         - Adicione um event listener de 'click' ao botão
 //         - Quando clicado, altere: backgroundColor para "lightblue", width para "200px",
 //           height para "200px" e borderRadius para "10px"
-let quadrado=document.getElementById('quadrado')
-let botao=document.getElementById('mudarEstilo')
-let mudar=false
-botao.addEventListener('click',()=>{
-  if(mudar===false){
-    quadrado.style.backgroundColor='lightblue'
-    quadrado.style.width='200px'
-    quadrado.style.height='200px'
-    quadrado.style.borderRadius='10px'
-    mudar=true
-  }else{
-    quadrado.style.backgroundColor='red'
-    quadrado.style.height='100px'
-    quadrado.style.width='100px'
-    mudar=false
-  }
+/**
+ * Gera um código de cor hexadecimal aleatório (#RRGGBB).
+ */
+function gerarCorAleatoriaHex() {
+  // Gera um número inteiro aleatório entre 0 e 16777215 (o equivalente a FFFFFF em decimal)
+  let cor = Math.floor(Math.random() * 16771215).toString(16);
 
-})
+  // Garante que a string tenha exatamente 6 caracteres, preenchendo com zeros à esquerda se necessário
+  return '#' + cor.padStart(6, '0');
+}
+
+let quadrado = document.getElementById('quadrado');
+let botao = document.getElementById('mudarEstilo');
+let mudar = false;
+
+botao.addEventListener('click', () => {
+    // 1. Cria a cor aleatória ANTES do IF
+    const corAleatoria = gerarCorAleatoriaHex();
+
+    if (mudar === false) {
+        quadrado.style.backgroundColor = corAleatoria; // Usa a cor aleatória
+        quadrado.style.width = '200px';
+        quadrado.style.height = '200px';
+        quadrado.style.borderRadius = '10px';
+        mudar = true;
+    } else {
+        // Você pode aplicar outra cor aleatória, ou manter uma cor fixa para o estado 'original'
+        quadrado.style.backgroundColor = corAleatoria; 
+        quadrado.style.height = '100px';
+        quadrado.style.width = '100px';
+        mudar = false;
+    }
+});
 
 // ========== EXERCÍCIO 3: Event Listeners de Teclado (2 pontos) ==========
 // TODO 3: Implemente as três funções e seus event listeners de teclado
